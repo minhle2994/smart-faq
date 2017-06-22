@@ -1,5 +1,5 @@
 import React from 'react';
-import {ResourceList, Card, Collapsible} from '@shopify/polaris';
+import {ResourceList, Card, Collapsible, Layout} from '@shopify/polaris';
 
 export default class KnowledgeBaseSection extends React.Component {
     constructor(props) {
@@ -13,46 +13,54 @@ export default class KnowledgeBaseSection extends React.Component {
         const onClickCollapse = () => {
             this.setState({isCollapsed: !this.state.isCollapsed})
         };
+
+        let items = [];
+        this.props.section.questions.forEach(item => {
+            items.push({
+                attributeOne: item.question,
+                actions: [
+                    {
+                        content: 'Disable',
+                    },
+                    {
+                        icon: 'notes',
+                    },
+                    {
+                        icon: 'delete',
+                    },
+                ],
+                persistActions: true,
+                badges: [
+                    {
+                        status: 'success',
+                        content: 'enabled',
+                    }
+                ],
+            })
+        });
+
         return (
-            <Card
-                title="General Questions"
-                actions={[{content: 'Edit'}, {content: 'Collapse', onClick: onClickCollapse}]}
-            >
-
-                <Collapsible
-                    open={!this.state.isCollapsed}
+            <Layout.Section>
+                <Card
+                    title={this.props.section.name}
+                    actions={[{content: 'Edit'}, {content: 'Remove'}, {content: 'Collapse', onClick: onClickCollapse}]}
                 >
-                    <Card.Section
-                    >
-                        <ResourceList
-                            items={[
-                                {
-                                    attributeOne: 'What is the warranty period?',
-                                },
-                                {
-                                    attributeOne: 'What payment options are there?',
-                                },
-                                {
-                                    attributeOne: 'What shipping options are available?',
-                                },
-                                {
-                                    attributeOne: 'How do I track my order?',
-                                },
-                                {
-                                    attributeOne: 'Do I need to be home for my delivery?',
-                                },
-                                {
-                                    attributeOne: 'How do I return a product?',
-                                },
-                            ]}
-                            renderItem={(item, index) => {
 
-                                return <ResourceList.Item key={index} {...item} />;
-                            }}
-                        />
-                    </Card.Section>
-                </Collapsible>
-            </Card>
+                    <Collapsible
+                        open={!this.state.isCollapsed}
+                    >
+
+                        <Card.Section>
+                            <ResourceList
+                                items={items}
+                                renderItem={(item, index) => {
+                                    return <ResourceList.Item key={index} {...item} />;
+                                }}
+                            />
+                        </Card.Section>
+                    </Collapsible>
+                </Card>
+            </Layout.Section>
         );
     }
 }
