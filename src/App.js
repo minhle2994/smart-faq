@@ -2,7 +2,7 @@ import React from 'react';
 import {Page, Tabs, FooterHelp, Link} from '@shopify/polaris';
 import {EmbeddedApp} from '@shopify/polaris/embedded';
 import KnowledgeBaseTab from './KnowledgeBaseTab';
-import ConversationsTab from './ConversationsTab';
+import ConversationsTab from './ConversationTab';
 import URLSearchParams from 'url-search-params';
 
 const shop = new URLSearchParams(window.location.search).get('shop');
@@ -12,7 +12,7 @@ const apiKey = new URLSearchParams(window.location.search).get('apiKey');
 const knowledgeBase = {
     sections: [
         {
-            name: 'General questions',
+            name: 'GENERAL QUESTIONS',
             questions: [
                 {
                     question: 'HOW DO I CONTACT CUSTOMER SERVICE?',
@@ -37,7 +37,7 @@ const knowledgeBase = {
             ]
         },
         {
-            name: 'Returns/Exchanges',
+            name: 'RETURN/EXCHANGE QUESTIONS',
             questions: [
                 {
                     question: 'HOW DO I ISSUE A RETURN/EXCHANGE?',
@@ -56,23 +56,58 @@ const knowledgeBase = {
     ]
 };
 
-const conversations = {
-    conversations: [
-        {
-            user: {
-                name: 'Jack',
-                email: '',
-                time: ''
+const conversations = [
+    {
+        customer: {
+            name: 'Jack',
+            email: 'jack@foobla.com',
+        },
+        timestamp: 1494374400,
+        messages: [
+            {
+                role: 'customer',
+                content: 'hello'
             },
-            messages: [
-                {
-                    role: 'customer',
-                    content: ''
-                }
-            ]
-        }
-    ]
-};
+            {
+                role: 'bot',
+                content: 'hi, how can i help you?'
+            },
+            {
+                role: 'customer',
+                content: 'how do i contact customer service?'
+            },
+            {
+                role: 'bot',
+                content: 'Simply email our team: support@commonslane.com and a member of our staff will personally keep in touch. You can also call us: 678-434-5019'
+            },
+        ]
+    },
+    {
+        customer: {
+            name: 'Rose',
+            email: 'rose@foobla.com',
+        },
+        timestamp: 1495238400,
+        messages: [
+            {
+                role: 'customer',
+                content: 'hello'
+            },
+            {
+                role: 'bot',
+                content: 'hi, how can i help you?'
+            },
+            {
+                role: 'customer',
+                content: 'how do i contact customer service?'
+            },
+            {
+                role: 'bot',
+                content: 'Simply email our team: support@commonslane.com and a member of our staff will personally keep in touch. You can also call us: 678-434-5019'
+            },
+        ]
+    },
+];
 
 export default class MyApp extends React.Component {
     constructor(props) {
