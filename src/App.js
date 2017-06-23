@@ -66,7 +66,8 @@ const conversations = {
             },
             messages: [
                 {
-
+                    role: 'customer',
+                    content: ''
                 }
             ]
         }
@@ -100,6 +101,7 @@ export default class MyApp extends React.Component {
             <EmbeddedApp
                 apiKey={apiKey}
                 shopOrigin={shopOrigin}
+                forceRedirect
             >
                 <Page
                     //icon="https://productreviews.shopifycdn.com/assets/header-icon-efc8ebea08d2a56006a1b818e62c599279ac9d5d43533029474dcd32300f4c36.png"
