@@ -23,10 +23,10 @@ export default class KnowledgeBaseSection extends React.Component {
                         content: 'Disable',
                     },
                     {
-                        icon: 'notes',
+                        content: 'Edit',
                     },
                     {
-                        icon: 'delete',
+                        content: 'Delete',
                     },
                 ],
                 persistActions: true,

@@ -80,6 +80,22 @@ const conversations = [
                 role: 'bot',
                 content: 'Simply email our team: support@commonslane.com and a member of our staff will personally keep in touch. You can also call us: 678-434-5019'
             },
+            {
+                role: 'customer',
+                content: 'hello'
+            },
+            {
+                role: 'bot',
+                content: 'hi, how can i help you?'
+            },
+            {
+                role: 'customer',
+                content: 'how do i contact customer service?'
+            },
+            {
+                role: 'bot',
+                content: 'Simply email our team: support@commonslane.com and a member of our staff will personally keep in touch. You can also call us: 678-434-5019'
+            },
         ]
     },
     {
@@ -89,6 +105,22 @@ const conversations = [
         },
         timestamp: 1495238400,
         messages: [
+            {
+                role: 'customer',
+                content: 'hello'
+            },
+            {
+                role: 'bot',
+                content: 'hi, how can i help you?'
+            },
+            {
+                role: 'customer',
+                content: 'how do i contact customer service?'
+            },
+            {
+                role: 'bot',
+                content: 'Simply email our team: support@commonslane.com and a member of our staff will personally keep in touch. You can also call us: 678-434-5019'
+            },
             {
                 role: 'customer',
                 content: 'hello'
